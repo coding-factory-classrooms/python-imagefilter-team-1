@@ -11,5 +11,3 @@ def dilated_image():
 
     cv2.imwrite('dilated_imgs/8-Mile.jpg', newImg)
 
-
-dilated_image()
