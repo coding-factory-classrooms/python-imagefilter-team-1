@@ -1,5 +1,24 @@
-import cv2
-import numpy
+import os, cv2, GrayScale, DilatedImage, BlurryImage, numpy
+from os import makedirs
+
+
+def All_images_filter_dilated(path, dstpath):
+    try:
+        makedirs(dstpath)
+
+    except:
+        print("Directory already exist, images will be written in modified_imgs folder")
+
+    # Folder won't used
+    files = os.listdir(path)
+
+    for image in files:
+        try:
+            img = cv2.imread(os.path.join(path, image))
+            img = DilatedImage.dilated_image(img)
+            cv2.imwrite(os.path.join(dstpath, image), img)
+        except cv2.error as e:
+            print(e)
 
 def dilated_image(image_entry):
 
@@ -14,7 +33,3 @@ def dilated_image(image_entry):
     except IndexError as e:
         print(e)
 
-
-# image = cv2.imread('imgs/8-Mile.jpg')
-# image = dilated_image(image)
-# cv2.imwrite('dilated_imgs/8-Mile.jpg')
