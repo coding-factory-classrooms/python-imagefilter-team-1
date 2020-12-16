@@ -1,4 +1,4 @@
-import os, cv2
+import os, cv2, GrayScale, DilatedImage, BlurryImage
 from os import makedirs
 
 path = r'imgs'  # Source Folder
@@ -14,6 +14,11 @@ except:
 files = os.listdir(path)
 
 for image in files:
-    img = cv2.imread(os.path.join(path, image))
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    cv2.imwrite(os.path.join(dstpath, image), gray)
+    try:
+        img = cv2.imread(os.path.join(path, image))
+        img = GrayScale.gray_filter(img)
+        img = BlurryImage.blur_filter(img)
+        img = DilatedImage.dilated_image(img)
+        cv2.imwrite(os.path.join(dstpath, image), img)
+    except cv2.error as e:
+        print(e)
