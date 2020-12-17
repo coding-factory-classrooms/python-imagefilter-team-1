@@ -3,6 +3,13 @@ from os import makedirs
 
 
 def All_images_filter(path, dstpath, blur, iteration):
+    f"""
+    Applique les filtres {GrayScale.gray_filter}, {BlurryImage.blur_filter()}, {DilatedImage.dilated_image()},{FilterZeTeam.text_filter()} à toutes les images d'un dossier
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    :param blur: desired blur intensity
+    :param iteration: number of times the pixels should dilate
+    """
 
     try:
         makedirs(dstpath)
@@ -25,6 +32,13 @@ def All_images_filter(path, dstpath, blur, iteration):
             print(e)
 
 def All_images_filter_dilate_blur(path, dstpath, blur, iteration):
+    f"""
+    Applique les filtres {BlurryImage.blur_filter()}, {DilatedImage.dilated_image()} à toutes les images d'un dossier
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    :param blur: desired blur intensity
+    :param iteration: number of times the pixels should dilate
+    """
 
     try:
         makedirs(dstpath)
@@ -45,6 +59,12 @@ def All_images_filter_dilate_blur(path, dstpath, blur, iteration):
             print(e)
 
 def All_images_filter_dilate_grayscale(path, dstpath, iteration):
+    f"""
+    Applique les filtres {GrayScale.gray_filter}, {DilatedImage.dilated_image()} à toutes les images d'un dossier
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    :param iteration: number of times the pixels should dilate
+    """
 
     try:
         makedirs(dstpath)
@@ -65,7 +85,12 @@ def All_images_filter_dilate_grayscale(path, dstpath, iteration):
             print(e)
 
 def All_images_filter_dilate_grayscale_text(path, dstpath, iteration):
-
+    f"""
+    Applique les filtres {GrayScale.gray_filter}, {DilatedImage.dilated_image()},{FilterZeTeam.text_filter()} à toutes les images d'un dossier
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    :param iteration: number of times the pixels should dilate
+    """
     try:
         makedirs(dstpath)
 
@@ -86,6 +111,12 @@ def All_images_filter_dilate_grayscale_text(path, dstpath, iteration):
             print(e)
 
 def All_images_filter_blur_grayscale(path, dstpath, blur):
+    f"""
+    Applique les filtres {GrayScale.gray_filter}, {BlurryImage.blur_filter()} à toutes les images d'un dossier
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    :param blur: desired blur intensity
+    """
 
     try:
         makedirs(dstpath)
@@ -106,6 +137,12 @@ def All_images_filter_blur_grayscale(path, dstpath, blur):
             print(e)
 
 def All_images_filter_blur_grayscale_text(path, dstpath, blur):
+    f"""
+    Applique les filtres {GrayScale.gray_filter}, {BlurryImage.blur_filter()},{FilterZeTeam.text_filter()} à toutes les images d'un dossier
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    :param blur: desired blur intensity
+    """
 
     try:
         makedirs(dstpath)
@@ -127,6 +164,11 @@ def All_images_filter_blur_grayscale_text(path, dstpath, blur):
             print(e)
 
 def All_images_filter_text_gray(path, dstpath):
+    f"""
+    Applique les filtres {GrayScale.gray_filter},{FilterZeTeam.text_filter()} à toutes les images d'un dossier
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    """
 
     try:
         makedirs(dstpath)
@@ -147,6 +189,12 @@ def All_images_filter_text_gray(path, dstpath):
             print(e)
 
 def All_images_filter_text_blurry(path, dstpath, blur):
+    f"""
+    Applique les filtres {BlurryImage.blur_filter()}, {FilterZeTeam.text_filter()} à toutes les images d'un dossier
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    :param blur: desired blur intensity
+    """
 
     try:
         makedirs(dstpath)
@@ -167,6 +215,13 @@ def All_images_filter_text_blurry(path, dstpath, blur):
             print(e)
 
 def All_images_filter_dilated_text(path, dstpath, iteration):
+    f"""
+    Applique les filtres {DilatedImage.dilated_image()},{FilterZeTeam.text_filter()} à toutes les images d'un dossier
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    :param blur: desired blur intensity
+    """
+
     try:
         makedirs(dstpath)
     except:

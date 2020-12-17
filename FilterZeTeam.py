@@ -3,6 +3,11 @@ from os import makedirs
 import logger
 
 def All_images_filter_text_filter(path, dstpath):
+    f"""
+    This function is used to apply the {text_filter()} function to all the images in a folder and create this folder if don't exist
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    """
     try:
         makedirs(dstpath)
         logger.log('new file "' + dstpath + '" has been created for gray images')
@@ -23,15 +28,17 @@ def All_images_filter_text_filter(path, dstpath):
             print(e)
 
 def text_filter(image_entry):
-
-     position = (10,50)
-     new_img= cv2.putText(image_entry, #numpy array on which text is written
+    """
+    this function allows to add text to an image, you can configure the font family, size and color
+    :param image_entry: image to filter
+    :return: image with the filter applied
+    """
+    position = (10,50)
+    new_img= cv2.putText(image_entry,
           'Leo.G/ Maxime.L', #text
           position, #position at which writing has to start
           cv2.FONT_HERSHEY_SIMPLEX, #font family
           1, #font size
           (209, 80, 0, 255), #font color
           3) #font stroke
-     return new_img
-
-All_images_filter_text_filter('imgs', 'imgas_new')
+    return new_img

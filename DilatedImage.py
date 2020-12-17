@@ -3,6 +3,12 @@ from os import makedirs
 import logger
 
 def All_images_filter_dilated(path, dstpath, iteration):
+    f"""
+    This function is used to apply the {dilated_image()} function to all the images in a folder and create this folder if don't exist
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    :param iteration: number of times the pixels should dilate
+    """
     try:
         makedirs(dstpath)
         logger.log('new file "' + dstpath + '" has been created for dilated images')
@@ -23,7 +29,12 @@ def All_images_filter_dilated(path, dstpath, iteration):
             print(e)
 
 def dilated_image(image_entry, iteration):
-
+    """
+    this function allows to add a dilated filter to an image
+    :param image_entry: image to filter
+    :param iteration: number of times the pixels should dilate
+    :return: image with the filter applied
+    """
 
     try:
         kernel = numpy.ones((5, 5), numpy.uint8)

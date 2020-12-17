@@ -3,6 +3,11 @@ from os import makedirs
 import logger
 
 def All_images_filter_grey_scale(path, dstpath):
+    f"""
+    This function is used to apply the {gray_filter()} function to all the images in a folder and create this folder if don't exist
+    :param path: folder where to collect images
+    :param dstpath: folder where to put the modified images
+    """
     try:
         makedirs(dstpath)
         logger.log('new file "' + dstpath + '" has been created for gray images')
@@ -23,6 +28,11 @@ def All_images_filter_grey_scale(path, dstpath):
             print(e)
 
 def gray_filter(image_entry):
+    """
+    this function allows to put an image in black and white
+    :param image_entry: image to filter
+    :return: image with the filter applied
+    """
     try:
         gray = cv2.cvtColor(image_entry, cv2.COLOR_BGR2GRAY)
         logger.log('gray_filter function')
