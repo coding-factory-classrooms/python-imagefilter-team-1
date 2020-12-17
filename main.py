@@ -1,4 +1,4 @@
-import sys , BlurryImage, GrayScale, DilatedImage, All_images
+import sys, BlurryImage, GrayScale, DilatedImage, All_images
 
 
 args = sys.argv
