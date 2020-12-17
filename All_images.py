@@ -1,4 +1,5 @@
-import os, cv2, GrayScale, DilatedImage, BlurryImage, FilterZeTeam
+import os, cv2
+from filters import GrayScale, FilterZeTeam, BlurryImage, DilatedImage
 from os import makedirs
 
 

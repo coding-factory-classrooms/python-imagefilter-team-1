@@ -1,12 +1,11 @@
-import os, cv2, GrayScale, DilatedImage, BlurryImage
+import os, cv2
 from os import makedirs
 import logger
 
-
-def All_images_filter_blurry(path, dstpath, blur):
+def All_images_filter_grey_scale(path, dstpath):
     try:
         makedirs(dstpath)
-        logger.log('new file "'+ dstpath+'" has been created for blurry images')
+        logger.log('new file "' + dstpath + '" has been created for gray images')
 
     except:
         print("Directory already exist, images will be written in "+ dstpath+ " folder")
@@ -17,18 +16,16 @@ def All_images_filter_blurry(path, dstpath, blur):
     for image in files:
         try:
             img = cv2.imread(os.path.join(path, image))
-            img = BlurryImage.blur_filter(img, blur)
+            img = GrayScale.gray_filter(img)
             cv2.imwrite(os.path.join(dstpath, image), img)
-            logger.log('All_images_filter_blurry function')
+            logger.log('All_images_filter_grey_scale function')
         except cv2.error as e:
             print(e)
 
-def blur_filter(image_entry, blur):
+def gray_filter(image_entry):
     try:
-        blurImage = cv2.GaussianBlur(image_entry, (blur, blur), 0)
-        logger.log('blur_filter function')
-        return blurImage
+        gray = cv2.cvtColor(image_entry, cv2.COLOR_BGR2GRAY)
+        logger.log('gray_filter function')
+        return gray
     except cv2.error as e:
         print(e)
-
-
