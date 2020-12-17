@@ -1,4 +1,7 @@
-import sys, BlurryImage, GrayScale, DilatedImage, All_images, logger, FilterZeTeam, initfile
+import sys, All_images, logger, initfile, os
+from filters import GrayScale, BlurryImage, DilatedImage
+from os import listdir
+
 
 filter_dictionnary = {}
 args = sys.argv
@@ -22,7 +25,8 @@ for i in range(0, len(args)):
               '-o, --output-dir <directory>\n'
               '--filters, --filters "grayscale|dilate:X|blur:X|text"\n'
               '--log, --log-file filter.log\n'
-              '--config-file, --config-file image.ini')
+              '--config-file, --config-file image.ini\n'
+              '--list-filters, give the list of all the filters')
     elif arg == '-i':
         if i + 1 < len(args):
             path = args[i + 1]
@@ -54,6 +58,15 @@ for i in range(0, len(args)):
         if i + 1 < len(args):
             doc_ini = args[i + 1]
             initfile.default_parameters(doc_ini)
+    elif arg == '--list-filters':
+        filters_package = listdir('filters')
+        for filter_file in filters_package:
+            file_extension = os.path.splitext(filter_file)[1]
+            if file_extension == '.py':
+                print(' - ' + filter_file.replace('.py', ''))
+
+
+
 
 
 if path == None:

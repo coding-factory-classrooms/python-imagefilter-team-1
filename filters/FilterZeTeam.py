@@ -1,4 +1,4 @@
-import os, cv2, FilterZeTeam
+import os, cv2
 from os import makedirs
 import logger
 
@@ -21,11 +21,12 @@ def All_images_filter_text_filter(path, dstpath):
     for image in files:
         try:
             img = cv2.imread(os.path.join(path, image))
-            img = FilterZeTeam.text_filter(img)
+            img = text_filter(img)
             cv2.imwrite(os.path.join(dstpath, image), img)
             logger.log('All_images_filter_grey_scale function')
         except cv2.error as e:
             print(e)
+
 
 def text_filter(image_entry):
     """
@@ -42,3 +43,5 @@ def text_filter(image_entry):
           (209, 80, 0, 255), #font color
           3) #font stroke
     return new_img
+
+All_images_filter_text_filter('imgs', 'imgas_new')
