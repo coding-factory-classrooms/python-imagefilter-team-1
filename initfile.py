@@ -30,6 +30,5 @@ def default_parameters(doc_ini):
             elif key == 'text':
                 text = filter_dictionnary[key]
 
-    All_images.All_images_filter(input, output, int(blur), int(iteration))
-    logger.dumb_log()
+    All_images.All_images_filter(input, output, int(blur), int(iteration), log_file)
 

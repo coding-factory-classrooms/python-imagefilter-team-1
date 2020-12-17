@@ -2,7 +2,7 @@ import os, cv2
 from os import makedirs
 import logger
 
-def All_images_filter_grey_scale(path, dstpath):
+def All_images_filter_grey_scale(path, dstpath, log_file):
     """
     This function is used to apply the {gray_filter()} function to all the images in a folder and create this folder if don't exist
     :param path: folder where to collect images
@@ -10,7 +10,7 @@ def All_images_filter_grey_scale(path, dstpath):
     """
     try:
         makedirs(dstpath)
-        logger.log('new file "' + dstpath + '" has been created for gray images')
+        logger.log('new file "' + dstpath + '" has been created for gray images', log_file)
 
     except:
         print("Directory already exist, images will be written in "+ dstpath+ " folder")
@@ -23,9 +23,10 @@ def All_images_filter_grey_scale(path, dstpath):
             img = cv2.imread(os.path.join(path, image))
             img = gray_filter(img)
             cv2.imwrite(os.path.join(dstpath, image), img)
-            logger.log('All_images_filter_grey_scale function')
         except cv2.error as e:
             print(e)
+    logger.log('gray_filter function', log_file)
+
 
 def gray_filter(image_entry):
     """
@@ -35,7 +36,6 @@ def gray_filter(image_entry):
     """
     try:
         gray = cv2.cvtColor(image_entry, cv2.COLOR_BGR2GRAY)
-        logger.log('gray_filter function')
         return gray
     except cv2.error as e:
         print(e)

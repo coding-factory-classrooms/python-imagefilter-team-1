@@ -2,7 +2,7 @@ import os, cv2, numpy
 from os import makedirs
 import logger
 
-def All_images_filter_dilated(path, dstpath, iteration):
+def All_images_filter_dilated(path, dstpath, iteration, log_file):
     """
     This function is used to apply the {dilated_image()} function to all the images in a folder and create this folder if don't exist
     :param path: folder where to collect images
@@ -11,7 +11,7 @@ def All_images_filter_dilated(path, dstpath, iteration):
     """
     try:
         makedirs(dstpath)
-        logger.log('new file "' + dstpath + '" has been created for dilated images')
+        logger.log('new file "' + dstpath + '" has been created for dilated images', log_file)
 
     except:
         print("Directory already exist, images will be written in"+ dstpath+ "folder")
@@ -24,9 +24,9 @@ def All_images_filter_dilated(path, dstpath, iteration):
             img = cv2.imread(os.path.join(path, image))
             img = dilated_image(img, iteration)
             cv2.imwrite(os.path.join(dstpath, image), img)
-            logger.log('All_images_filter_dilated function')
         except cv2.error as e:
             print(e)
+    logger.log('dilated_image function', log_file)
 
 def dilated_image(image_entry, iteration):
     """
@@ -39,7 +39,6 @@ def dilated_image(image_entry, iteration):
     try:
         kernel = numpy.ones((5, 5), numpy.uint8)
         newImg = cv2.dilate(image_entry, kernel, iterations=iteration)
-        logger.log('dilated_image function')
         return newImg
     except cv2.error as e:
         print(e)
