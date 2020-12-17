@@ -11,10 +11,7 @@ blur = None
 iteration = None
 grayscale= None
 text =None
-
-
-if len(args) == 1:
-    initfile.default_parameters('filter.ini')
+log_file = 'filter.log'
 
 for i in range(0, len(args)):
     arg = args[i]
@@ -52,8 +49,9 @@ for i in range(0, len(args)):
                     grayscale = filter_dictionnary[key]
                 elif key == 'text':
                     text_filter = filter_dictionnary[key]
-    elif arg == '--log':
-        logger.dumb_log()
+    elif arg == '--log-file':
+        if i + 1 < len(args):
+            log_file = args[i + 1]
     elif arg == '--config-file':
         if i + 1 < len(args):
             doc_ini = args[i + 1]
@@ -65,56 +63,54 @@ for i in range(0, len(args)):
             if file_extension == '.py':
                 print(' - ' + filter_file.replace('.py', ''))
 
-
-
-
-
-if path == None:
-    print("There is no directory initialised")
+if len(args) == 1:
+    initfile.default_parameters('filter.ini')
+elif path == None:
+    print('No initialized directory')
 elif dstpath == None:
     dstpath = 'default_directory'
 elif (iteration == None) & (blur == None) & (grayscale == '') & (text == ''):
-    All_images.All_images_filter_text_gray(path, dstpath)
+    All_images.All_images_filter_text_gray(path, dstpath, log_file)
 elif (iteration == None) & (blur == None) & (grayscale == '') & (text == None):
-    GrayScale.All_images_filter_grey_scale(path, dstpath)
+    GrayScale.All_images_filter_grey_scale(path, dstpath, log_file)
 elif (iteration == None) & (grayscale == None) & (blur != None) & (text == None):
     blur = int(blur)
     if ((blur % 2) == 0) | (blur < 0):
         print('The blur need to be positive and odd')
     else:
-        BlurryImage.All_images_filter_blurry(path, dstpath, blur)
+        BlurryImage.All_images_filter_blurry(path, dstpath, blur, log_file)
 elif (iteration == None) & (grayscale == None) & (blur != None) & (text == ''):
     blur = int(blur)
     if ((blur % 2) == 0) | (blur < 0):
         print('The blur need to be positive and odd')
     else:
-        All_images.All_images_filter_text_blurry(path, dstpath, blur)
+        All_images.All_images_filter_text_blurry(path, dstpath, blur, log_file)
 elif (iteration != None) & (grayscale == None) & (blur == None) & (text == None):
     iteration = int(iteration)
-    DilatedImage.All_images_filter_dilated(path, dstpath, iteration)
+    DilatedImage.All_images_filter_dilated(path, dstpath, iteration, log_file)
 elif (iteration != None) & (grayscale == None) & (blur == None) & (text == ''):
     iteration = int(iteration)
-    All_images.All_images_filter_dilated_text(path, dstpath, iteration)
+    All_images.All_images_filter_dilated_text(path, dstpath, iteration, log_file)
 elif (iteration != None) & (grayscale == None) & (blur != None) & (text == None):
     iteration = int(iteration)
     blur = int(blur)
     if ((blur % 2)== 0) | (blur < 0):
         print('The blur need to be positive and odd')
     else:
-        All_images.All_images_filter_dilate_blur(path, dstpath, blur, iteration)
+        All_images.All_images_filter_dilate_blur(path, dstpath, blur, iteration, log_file)
 elif (iteration != None) & (grayscale == None) & (blur != None) & (text == ''):
     iteration = int(iteration)
     blur = int(blur)
     if ((blur % 2)== 0) | (blur < 0):
         print('The blur need to be positive and odd')
     else:
-        All_images.All_images_filter_dilate_blur_text(path, dstpath, blur, iteration)
+        All_images.All_images_filter_dilate_blur_text(path, dstpath, blur, iteration, log_file)
 elif (iteration == None) & (grayscale == '') & (blur != None) & (text == None):
     blur = int(blur)
     if ((blur % 2) == 0) | (blur < 0):
         print('The blur need to be positive and odd')
     else:
-        All_images.All_images_filter_blur_grayscale(path, dstpath, blur)
+        All_images.All_images_filter_blur_grayscale(path, dstpath, blur, log_file)
 elif (iteration == None) & (grayscale == '') & (blur != None) & (text == ''):
     blur = int(blur)
     if ((blur % 2) == 0) | (blur < 0):

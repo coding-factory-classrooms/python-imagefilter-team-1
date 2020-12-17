@@ -2,10 +2,10 @@ import os, cv2
 from os import makedirs
 import logger
 
-def All_images_filter_text_filter(path, dstpath):
+def All_images_filter_text_filter(path, dstpath, log_file):
     try:
         makedirs(dstpath)
-        logger.log('new file "' + dstpath + '" has been created for gray images')
+        logger.log('new file "' + dstpath + '" has been created for gray images', log_file)
 
     except:
         print("Directory already exist, images will be written in "+ dstpath+ " folder")
@@ -18,9 +18,9 @@ def All_images_filter_text_filter(path, dstpath):
             img = cv2.imread(os.path.join(path, image))
             img = text_filter(img)
             cv2.imwrite(os.path.join(dstpath, image), img)
-            logger.log('All_images_filter_grey_scale function')
         except cv2.error as e:
             print(e)
+    logger.log('Text on images function', log_file)
 
 
 def text_filter(image_entry):

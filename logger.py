@@ -1,21 +1,11 @@
 from datetime import datetime
 
-logFile = 'filter.log'
-
-def log(msg):
+def log(msg, log_file):
+    print(msg)
     now = datetime.now()
     timestamp = now.strftime('%Y/%m/%d %H:%M:%S')
     formated = f'{timestamp} - {msg}'
 
-    with open(logFile, 'a') as f:
+    with open(log_file, 'a') as f:
         f.write('I was here : ' + formated + '\n')
         f.write('------\n')
-
-
-def dumb_log():
-    try:
-        f = open(logFile, 'r')
-        print(f.read())
-        f.close()
-    except FileNotFoundError as e:
-        print(f'cannot open {logFile}. error={e}')
