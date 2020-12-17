@@ -16,7 +16,7 @@ def All_images_filter(path, dstpath, blur, iteration):
         makedirs(dstpath)
 
     except:
-        print("Directory already exist, images will be written in modified_imgs folder")
+        print("Directory already exist, images will be written in  "+ dstpath+ " folder")
 
     # Folder won't used
     files = os.listdir(path)
@@ -45,7 +45,7 @@ def All_images_filter_dilate_blur(path, dstpath, blur, iteration):
         makedirs(dstpath)
 
     except:
-        print("Directory already exist, images will be written in modified_imgs folder")
+        print("Directory already exist, images will be written in  "+ dstpath+ " folder")
 
     # Folder won't used
     files = os.listdir(path)
@@ -71,7 +71,7 @@ def All_images_filter_dilate_grayscale(path, dstpath, iteration):
         makedirs(dstpath)
 
     except:
-        print("Directory already exist, images will be written in modified_imgs folder")
+        print("Directory already exist, images will be written in  "+ dstpath+ " folder")
 
     # Folder won't used
     files = os.listdir(path)
@@ -96,7 +96,7 @@ def All_images_filter_dilate_grayscale_text(path, dstpath, iteration):
         makedirs(dstpath)
 
     except:
-        print("Directory already exist, images will be written in modified_imgs folder")
+        print("Directory already exist, images will be written in  "+ dstpath+ " folder")
 
     # Folder won't used
     files = os.listdir(path)
@@ -123,7 +123,7 @@ def All_images_filter_blur_grayscale(path, dstpath, blur):
         makedirs(dstpath)
 
     except:
-        print("Directory already exist, images will be written in modified_imgs folder")
+        print("Directory already exist, images will be written in  "+ dstpath+ " folder")
 
     # Folder won't used
     files = os.listdir(path)
@@ -149,7 +149,7 @@ def All_images_filter_blur_grayscale_text(path, dstpath, blur):
         makedirs(dstpath)
 
     except:
-        print("Directory already exist, images will be written in modified_imgs folder")
+        print("Directory already exist, images will be written in  "+ dstpath+ " folder")
 
     # Folder won't used
     files = os.listdir(path)
@@ -175,7 +175,7 @@ def All_images_filter_text_gray(path, dstpath):
         makedirs(dstpath)
 
     except:
-        print("Directory already exist, images will be written in modified_imgs folder")
+        print("Directory already exist, images will be written in  "+ dstpath+ " folder")
 
     # Folder won't used
     files = os.listdir(path)
@@ -201,7 +201,7 @@ def All_images_filter_text_blurry(path, dstpath, blur):
         makedirs(dstpath)
 
     except:
-        print("Directory already exist, images will be written in modified_imgs folder")
+        print("Directory already exist, images will be written in  "+ dstpath+ " folder")
 
     # Folder won't used
     files = os.listdir(path)
@@ -226,7 +226,7 @@ def All_images_filter_dilated_text(path, dstpath, iteration):
     try:
         makedirs(dstpath)
     except:
-        print("Directory already exist, images will be written in"+ dstpath+ "folder")
+        print("Directory already exist, images will be written in "+ dstpath+ " folder")
 
     # Folder won't used
     files = os.listdir(path)
