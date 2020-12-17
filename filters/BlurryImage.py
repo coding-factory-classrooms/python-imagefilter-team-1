@@ -40,7 +40,6 @@ def blur_filter(image_entry, blur):
     """
     try:
         blurImage = cv2.GaussianBlur(image_entry, (blur, blur), 0)
-        logger.log('blur_filter function')
         return blurImage
     except cv2.error as e:
         print(e)
