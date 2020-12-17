@@ -3,7 +3,7 @@ from os import makedirs
 import logger
 
 def All_images_filter_dilated(path, dstpath, iteration):
-    f"""
+    """
     This function is used to apply the {dilated_image()} function to all the images in a folder and create this folder if don't exist
     :param path: folder where to collect images
     :param dstpath: folder where to put the modified images

@@ -3,7 +3,7 @@ from os import makedirs
 import logger
 
 def All_images_filter_text_filter(path, dstpath):
-    f"""
+    """
     This function is used to apply the {text_filter()} function to all the images in a folder and create this folder if don't exist
     :param path: folder where to collect images
     :param dstpath: folder where to put the modified images
@@ -43,5 +43,3 @@ def text_filter(image_entry):
           (209, 80, 0, 255), #font color
           3) #font stroke
     return new_img
-
-All_images_filter_text_filter('imgs', 'imgas_new')
