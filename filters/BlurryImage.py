@@ -17,7 +17,7 @@ def All_images_filter_blurry(path, dstpath, blur):
     for image in files:
         try:
             img = cv2.imread(os.path.join(path, image))
-            img = BlurryImage.blur_filter(img, blur)
+            img = blur_filter(img, blur)
             cv2.imwrite(os.path.join(dstpath, image), img)
             logger.log('All_images_filter_blurry function')
         except cv2.error as e:

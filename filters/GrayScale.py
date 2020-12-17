@@ -16,7 +16,7 @@ def All_images_filter_grey_scale(path, dstpath):
     for image in files:
         try:
             img = cv2.imread(os.path.join(path, image))
-            img = GrayScale.gray_filter(img)
+            img = gray_filter(img)
             cv2.imwrite(os.path.join(dstpath, image), img)
             logger.log('All_images_filter_grey_scale function')
         except cv2.error as e:
