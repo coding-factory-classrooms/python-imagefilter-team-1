@@ -14,7 +14,8 @@ for i in range(0, len(args)):
         print('usage: imagefilter\n'
               '-h, ----help\n'
               '-i, --input-dir <directory>\n'
-              '-o, --output-dir <directory>')
+              '-o, --output-dir <directory>\n'
+              '--filters, --filters "grayscale|dilate:X|blur:X"')
     elif arg == '-i':
         if i + 1 < len(args):
             path = args[i + 1]
@@ -49,21 +50,33 @@ elif (iteration == None) & (blur == None) & (grayscale == ''):
     GrayScale.All_images_filter_grey_scale(path, dstpath)
 elif (iteration == None) & (grayscale == None) & (blur != None):
     blur = int(blur)
-    BlurryImage.All_images_filter_blurry(path, dstpath, blur)
+    if ((blur % 2) == 0) | (blur < 0):
+        print('The blur need to be positive and odd')
+    else:
+        BlurryImage.All_images_filter_blurry(path, dstpath, blur)
 elif (iteration != None) & (grayscale == None) & (blur == None):
     iteration = int(iteration)
     DilatedImage.All_images_filter_dilated(path, dstpath, iteration)
 elif (iteration != None) & (grayscale == None) & (blur != None):
     iteration = int(iteration)
     blur = int(blur)
-    All_images.All_images_filter_dilate_blur(path, dstpath, blur, iteration)
+    if ((blur % 2)== 0) | (blur < 0):
+        print('The blur need to be positive and odd')
+    else:
+        All_images.All_images_filter_dilate_blur(path, dstpath, blur, iteration)
 elif (iteration == None) & (grayscale == '') & (blur != None):
     blur = int(blur)
-    All_images.All_images_filter_blur_grayscale(path, dstpath, blur)
+    if ((blur % 2) == 0) | (blur < 0):
+        print('The blur need to be positive and odd')
+    else:
+        All_images.All_images_filter_blur_grayscale(path, dstpath, blur)
 elif (iteration != None) & (grayscale == '') & (blur == None):
     iteration = int(iteration)
     All_images.All_images_filter_dilate_grayscale(path, dstpath, iteration)
 else:
     blur = int(blur)
     iteration = int(iteration)
-    All_images.All_images_filter(path, dstpath, )
+    if ((blur % 2) == 0) | (blur < 0):
+        print('The blur need to be positive and odd')
+    else:
+        All_images.All_images_filter(path, dstpath, blur, iteration)
