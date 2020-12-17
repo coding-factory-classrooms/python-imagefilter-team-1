@@ -4,6 +4,9 @@ filter_dictionnary = {}
 args = sys.argv
 path = None
 dstpath = None
+blur = None
+iteration = None
+grayscale= None
 
 for i in range(0, len(args)):
     arg = args[i]
@@ -22,21 +25,45 @@ for i in range(0, len(args)):
         if i + 1 < len(args):
             filters = args[i + 1]
             tab_filters = filters.split('|')
-            print(tab_filters)
             for filter in tab_filters:
                 filter_split = filter.split(':')
                 try:
                     filter_dictionnary[filter_split[0]] = filter_split[1]
                 except IndexError as e:
                     filter_dictionnary[filter_split[0]] = ''
-                # for i in range(0, len(filter_dictionnary)):
+            for key in filter_dictionnary.keys():
+                if key == 'blur':
+                    blur = filter_dictionnary[key]
+                elif key == 'dilate':
+                    iteration = filter_dictionnary[key]
+                elif key == 'grayscale':
+                    grayscale = filter_dictionnary[key]
 
 
-print(filter_dictionnary)
+
 if path == None:
     print("There is no directory initialised")
 elif dstpath == None:
     dstpath = 'default_directory'
+elif (iteration == None) & (blur == None) & (grayscale == ''):
+    GrayScale.All_images_filter_grey_scale(path, dstpath)
+elif (iteration == None) & (grayscale == None) & (blur != None):
+    blur = int(blur)
+    BlurryImage.All_images_filter_blurry(path, dstpath, blur)
+elif (iteration != None) & (grayscale == None) & (blur == None):
+    iteration = int(iteration)
+    DilatedImage.All_images_filter_dilated(path, dstpath, iteration)
+elif (iteration != None) & (grayscale == None) & (blur != None):
+    iteration = int(iteration)
+    blur = int(blur)
+    All_images.All_images_filter_dilate_blur(path, dstpath, blur, iteration)
+elif (iteration == None) & (grayscale == '') & (blur != None):
+    blur = int(blur)
+    All_images.All_images_filter_blur_grayscale(path, dstpath, blur)
+elif (iteration != None) & (grayscale == '') & (blur == None):
+    iteration = int(iteration)
+    All_images.All_images_filter_dilate_grayscale(path, dstpath, iteration)
 else:
-    All_images.All_images_filter(path, dstpath)
-
+    blur = int(blur)
+    iteration = int(iteration)
+    All_images.All_images_filter(path, dstpath, )
