@@ -1,4 +1,4 @@
-import sys, BlurryImage, GrayScale, DilatedImage, All_images
+import sys, BlurryImage, GrayScale, DilatedImage, All_images, FilterZeTeam
 
 filter_dictionnary = {}
 args = sys.argv
@@ -39,6 +39,8 @@ for i in range(0, len(args)):
                     iteration = filter_dictionnary[key]
                 elif key == 'grayscale':
                     grayscale = filter_dictionnary[key]
+                elif key == 'text':
+                    text_filter= filter_dictionnary[key]
 
 
 

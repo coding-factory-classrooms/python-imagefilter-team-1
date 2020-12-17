@@ -1,4 +1,4 @@
-import os, cv2, GrayScale, DilatedImage, BlurryImage
+import os, cv2, GrayScale, DilatedImage, BlurryImage, FilterZeTeam
 from os import makedirs
 
 
@@ -19,6 +19,7 @@ def All_images_filter(path, dstpath, blur, iteration):
             img = GrayScale.gray_filter(img)
             img = BlurryImage.blur_filter(img, blur)
             img = DilatedImage.dilated_image(img, iteration)
+            img = FilterZeTeam.text_filter(img)
             cv2.imwrite(os.path.join(dstpath, image), img)
         except cv2.error as e:
             print(e)
