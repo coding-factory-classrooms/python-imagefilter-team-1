@@ -1,4 +1,4 @@
-import sys, BlurryImage, GrayScale, DilatedImage, All_images
+import sys, BlurryImage, GrayScale, DilatedImage, All_images, logger
 
 filter_dictionnary = {}
 args = sys.argv
@@ -15,7 +15,8 @@ for i in range(0, len(args)):
               '-h, ----help\n'
               '-i, --input-dir <directory>\n'
               '-o, --output-dir <directory>\n'
-              '--filters, --filters "grayscale|dilate:X|blur:X"')
+              '--filters, --filters "grayscale|dilate:X|blur:X"\n'
+              '--log, --log-file filter.log')
     elif arg == '-i':
         if i + 1 < len(args):
             path = args[i + 1]
@@ -39,7 +40,8 @@ for i in range(0, len(args)):
                     iteration = filter_dictionnary[key]
                 elif key == 'grayscale':
                     grayscale = filter_dictionnary[key]
-
+    elif arg == '--log':
+        logger.dumb_log()
 
 
 if path == None:

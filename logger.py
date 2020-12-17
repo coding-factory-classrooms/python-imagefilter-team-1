@@ -12,10 +12,10 @@ def log(msg):
         f.write('------\n')
 
 
-# def dumb_log():
-#     try:
-#         f = open(logFile, 'r')
-#         print(f.read())
-#         f.close()
-#     except FileNotFoundError as e:
-#         print(f'cannot open {logFile}. error={e}')
+def dumb_log():
+    try:
+        f = open(logFile, 'r')
+        print(f.read())
+        f.close()
+    except FileNotFoundError as e:
+        print(f'cannot open {logFile}. error={e}')
