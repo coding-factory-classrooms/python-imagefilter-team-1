@@ -20,9 +20,9 @@ def All_images_filter_blurry(path, dstpath):
         except cv2.error as e:
             print(e)
 
-def blur_filter(image_entry):
+def blur_filter(image_entry, blur):
     try:
-        blurImage = cv2.GaussianBlur(image_entry, (15, 15), 0)
+        blurImage = cv2.GaussianBlur(image_entry, (blur, blur), 0)
         return blurImage
     except cv2.error as e:
         print(e)

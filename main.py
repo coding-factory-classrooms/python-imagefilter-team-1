@@ -29,6 +29,8 @@ for i in range(0, len(args)):
                     filter_dictionnary[filter_split[0]] = filter_split[1]
                 except IndexError as e:
                     filter_dictionnary[filter_split[0]] = ''
+                # for i in range(0, len(filter_dictionnary)):
+
 
 print(filter_dictionnary)
 if path == None:
