@@ -8,7 +8,7 @@ def log(msg):
     formated = f'{timestamp} - {msg}'
 
     with open(logFile, 'a') as f:
-        f.write('je suis passé par ici : ' + formated + '\n')
+        f.write('I was here : ' + formated + '\n')
         f.write('------\n')
 
 
