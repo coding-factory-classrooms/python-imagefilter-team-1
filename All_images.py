@@ -32,6 +32,7 @@ def All_images_filter(path, dstpath, blur, iteration, log_file):
         except cv2.error as e:
             print(e)
     logger.log('All filters are applied', log_file)
+    print('All filters are applied')
 
 def All_images_filter_dilate_grayscale_blur(path, dstpath, iteration, blur, log_file):
     """
@@ -60,7 +61,8 @@ def All_images_filter_dilate_grayscale_blur(path, dstpath, iteration, blur, log_
             cv2.imwrite(os.path.join(dstpath, image), img)
         except cv2.error as e:
             print(e)
-    logger.log('All filters are applied', log_file)
+    logger.log('Filters blur, grayscale, and dilate are applied', log_file)
+    print('Filters blur, grayscale, and dilate are applied')
 
 def All_images_filter_dilate_blur(path, dstpath, blur, iteration, log_file):
     """
@@ -89,6 +91,7 @@ def All_images_filter_dilate_blur(path, dstpath, blur, iteration, log_file):
         except cv2.error as e:
             print(e)
     logger.log('Filter dilate and blur applied', log_file)
+    print('Filter dilate and blur applied')
 
 def All_images_filter_dilate_grayscale(path, dstpath, iteration, log_file):
     """
@@ -116,6 +119,7 @@ def All_images_filter_dilate_grayscale(path, dstpath, iteration, log_file):
         except cv2.error as e:
             print(e)
     logger.log('Filters dilate and grayscale are applied', log_file)
+    print('Filters dilate and grayscale are applied')
 
 def All_images_filter_dilate_grayscale_text(path, dstpath, iteration, log_file):
     """
@@ -143,6 +147,7 @@ def All_images_filter_dilate_grayscale_text(path, dstpath, iteration, log_file):
         except cv2.error as e:
             print(e)
     logger.log('Filter dilate grayscale and text are applied', log_file)
+    print('Filter dilate grayscale and text are applied')
 
 def All_images_filter_blur_grayscale(path, dstpath, blur, log_file):
     """
@@ -170,6 +175,7 @@ def All_images_filter_blur_grayscale(path, dstpath, blur, log_file):
         except cv2.error as e:
             print(e)
     logger.log('Filters blur and grayscale are applied', log_file)
+    print('Filters blur and grayscale are applied')
 
 def All_images_filter_blur_grayscale_text(path, dstpath, blur, log_file):
     """
@@ -198,6 +204,7 @@ def All_images_filter_blur_grayscale_text(path, dstpath, blur, log_file):
         except cv2.error as e:
             print(e)
     logger.log('Filters blur, grayscale and text are applied', log_file)
+    print('Filters blur, grayscale and text are applied')
 
 def All_images_filter_text_gray(path, dstpath,log_file):
     """
@@ -224,6 +231,7 @@ def All_images_filter_text_gray(path, dstpath,log_file):
         except cv2.error as e:
             print(e)
     logger.log('Filters text and grayscale are applied', log_file)
+    print('Filters text and grayscale are applied')
 
 
 def All_images_filter_text_blurry(path, dstpath, blur,log_file):

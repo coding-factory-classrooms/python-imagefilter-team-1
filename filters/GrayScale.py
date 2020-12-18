@@ -26,6 +26,7 @@ def All_images_filter_grey_scale(path, dstpath, log_file):
         except cv2.error as e:
             print(e)
     logger.log('gray_filter function', log_file)
+    print('gray_filter function')
 
 
 def gray_filter(image_entry):

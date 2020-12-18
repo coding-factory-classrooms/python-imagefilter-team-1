@@ -27,6 +27,7 @@ def All_images_filter_dilated(path, dstpath, iteration, log_file):
         except cv2.error as e:
             print(e)
     logger.log('dilated_image function', log_file)
+    print('dilated_image function')
 
 def dilated_image(image_entry, iteration):
     """

@@ -29,6 +29,7 @@ def All_images_filter_blurry(path, dstpath, blur, log_file):
         except cv2.error as e:
             print(e)
     logger.log('blur_filter function', log_file)
+    print('blur_filter function')
 
 
 def blur_filter(image_entry, blur):
