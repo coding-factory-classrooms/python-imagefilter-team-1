@@ -13,6 +13,7 @@ grayscale= None
 text =None
 log_file = 'filter.log'
 
+# Check all the entries from the user
 for i in range(0, len(args)):
     arg = args[i]
     if arg == '-h':
@@ -63,9 +64,11 @@ for i in range(0, len(args)):
             if file_extension == '.py':
                 print(' - ' + filter_file.replace('.py', ''))
 
+#Check if the user have enter no input
 if len(args) == 1:
     initfile.default_parameters('filter.ini')
 
+# Check if directory are there
 if path == None:
     print('No initialized directory')
     sys.exit()
