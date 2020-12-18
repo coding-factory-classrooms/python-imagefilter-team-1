@@ -26,7 +26,7 @@ def All_images_filter_text_filter(path, dstpath, log_file):
         except cv2.error as e:
             print(e)
     logger.log('Text on images function', log_file)
-
+    print("Text on images function")
 
 def text_filter(image_entry):
     """

@@ -63,8 +63,7 @@ for i in range(0, len(args)):
             if file_extension == '.py':
                 print(' - ' + filter_file.replace('.py', ''))
 
-
-if len(args) <= 1:
+if len(args) == 1:
     initfile.default_parameters('filter.ini')
 
 if path == None:
@@ -79,57 +78,58 @@ if dstpath == None:
 if (iteration == None) & (blur == None) & (grayscale == None) & (text == ''):
     FilterZeTeam.All_images_filter_text_filter(path, dstpath, log_file)
 elif (iteration == None) & (blur == None) & (grayscale == '') & (text == ''):
+elif (iteration == None) and (blur == None) and (grayscale == '') and (text == ''):
     All_images.All_images_filter_text_gray(path, dstpath, log_file)
-elif (iteration == None) & (blur == None) & (grayscale == '') & (text == None):
+elif (iteration == None) and (blur == None) and (grayscale == '') and (text == None):
     GrayScale.All_images_filter_grey_scale(path, dstpath, log_file)
-elif (iteration == None) & (grayscale == None) & (blur != None) & (text == None):
+elif (iteration == None) and (grayscale == None) and (blur != None) and (text == None):
     blur = int(blur)
-    if ((blur % 2) == 0) | (blur < 0):
+    if ((blur % 2) == 0) or (blur < 0):
         print('The blur need to be positive and odd')
     else:
         BlurryImage.All_images_filter_blurry(path, dstpath, blur, log_file)
-elif (iteration == None) & (grayscale == None) & (blur != None) & (text == ''):
+elif (iteration == None) and (grayscale == None) and (blur != None) and (text == ''):
     blur = int(blur)
-    if ((blur % 2) == 0) | (blur < 0):
+    if ((blur % 2) == 0) or (blur < 0):
         print('The blur need to be positive and odd')
     else:
         All_images.All_images_filter_text_blurry(path, dstpath, blur, log_file)
-elif (iteration != None) & (grayscale == None) & (blur == None) & (text == None):
+elif (iteration != None) and (grayscale == None) and (blur == None) and (text == None):
     iteration = int(iteration)
     DilatedImage.All_images_filter_dilated(path, dstpath, iteration, log_file)
-elif (iteration != None) & (grayscale == None) & (blur == None) & (text == ''):
+elif (iteration != None) and (grayscale == None) and (blur == None) and (text == ''):
     iteration = int(iteration)
     All_images.All_images_filter_dilated_text(path, dstpath, iteration, log_file)
-elif (iteration != None) & (grayscale == None) & (blur != None) & (text == None):
+elif (iteration != None) and (grayscale == None) and (blur != None) and (text == None):
     iteration = int(iteration)
     blur = int(blur)
-    if ((blur % 2)== 0) | (blur < 0):
+    if ((blur % 2)== 0) or (blur < 0):
         print('The blur need to be positive and odd')
     else:
         All_images.All_images_filter_dilate_blur(path, dstpath, blur, iteration, log_file)
-elif (iteration != None) & (grayscale == None) & (blur != None) & (text == ''):
+elif (iteration != None) and (grayscale == None) and (blur != None) and (text == ''):
     iteration = int(iteration)
     blur = int(blur)
-    if ((blur % 2)== 0) | (blur < 0):
+    if ((blur % 2)== 0) or (blur < 0):
         print('The blur need to be positive and odd')
     else:
         All_images.All_images_filter_dilate_blur_text(path, dstpath, blur, iteration, log_file)
-elif (iteration == None) & (grayscale == '') & (blur != None) & (text == None):
+elif (iteration == None) and (grayscale == '') and (blur != None) and (text == None):
     blur = int(blur)
-    if ((blur % 2) == 0) | (blur < 0):
+    if ((blur % 2) == 0) or (blur < 0):
         print('The blur need to be positive and odd')
     else:
         All_images.All_images_filter_blur_grayscale(path, dstpath, blur, log_file)
-elif (iteration == None) & (grayscale == '') & (blur != None) & (text == ''):
+elif (iteration == None) and (grayscale == '') and (blur != None) and (text == ''):
     blur = int(blur)
-    if ((blur % 2) == 0) | (blur < 0):
+    if ((blur % 2) == 0) or (blur < 0):
         print('The blur need to be positive and odd')
     else:
         All_images.All_images_filter_blur_grayscale_text(path, dstpath, blur, log_file)
-elif (iteration != None) & (grayscale == '') & (blur == None) & (text == None):
+elif (iteration != None) and (grayscale == '') and (blur == None) and (text == None):
     iteration = int(iteration)
     All_images.All_images_filter_dilate_grayscale(path, dstpath, iteration, log_file)
-elif (iteration != None) & (grayscale == '') & (blur == None) & (text == ''):
+elif (iteration != None) and (grayscale == '') and (blur == None) and (text == ''):
     iteration = int(iteration)
     All_images.All_images_filter_dilate_grayscale_text(path, dstpath, iteration, log_file)
 elif (iteration != None) & (grayscale == '') & (blur != None) & (text == None):
@@ -139,7 +139,7 @@ elif (iteration != None) & (grayscale == '') & (blur != None) & (text == None):
 else:
     blur = int(blur)
     iteration = int(iteration)
-    if ((blur % 2) == 0) | (blur < 0):
+    if ((blur % 2) == 0) or (blur < 0):
         print('The blur need to be positive and odd')
     else:
         All_images.All_images_filter(path, dstpath, blur, iteration, log_file)
