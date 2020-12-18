@@ -77,7 +77,6 @@ if dstpath == None:
     # Text or grayscale or blur or dilata
 if (iteration == None) & (blur == None) & (grayscale == None) & (text == ''):
     FilterZeTeam.All_images_filter_text_filter(path, dstpath, log_file)
-elif (iteration == None) & (blur == None) & (grayscale == '') & (text == ''):
 elif (iteration == None) and (blur == None) and (grayscale == '') and (text == ''):
     All_images.All_images_filter_text_gray(path, dstpath, log_file)
 elif (iteration == None) and (blur == None) and (grayscale == '') and (text == None):
@@ -132,7 +131,7 @@ elif (iteration != None) and (grayscale == '') and (blur == None) and (text == N
 elif (iteration != None) and (grayscale == '') and (blur == None) and (text == ''):
     iteration = int(iteration)
     All_images.All_images_filter_dilate_grayscale_text(path, dstpath, iteration, log_file)
-elif (iteration != None) & (grayscale == '') & (blur != None) & (text == None):
+elif (iteration != None) and (grayscale == '') and (blur != None) and (text == None):
     iteration = int(iteration)
     blur = int(blur)
     All_images.All_images_filter_dilate_grayscale_blur(path, dstpath, iteration, blur, log_file)
